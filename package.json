@@ -8,10 +8,20 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "![:image](https://img1.etsystatic.com/049/0/6289898/il_fullxfull.711382185_hm60.jpg)",
   "dependencies": {
     "body-parser": "^1.14.2",
     "ejs": "^2.3.4",
-    "express": "^4.13.3"
-  }
+    "express": "^4.13.3",
+    "mongodb": "^2.1.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anastasiaalt/birdwatchr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anastasiaalt/birdwatchr/issues"
+  },
+  "homepage": "https://github.com/anastasiaalt/birdwatchr#readme"
 }
