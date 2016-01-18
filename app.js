@@ -6,11 +6,13 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
+app.use(express.static(__dirname + '/node_modules'));
 
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
 var mongoUrl = "mongodb://localhost:27017/myDB";
 var db;
+
 
 MongoClient.connect(mongoUrl, function(err, database){
   if (err) {
@@ -39,3 +41,5 @@ app.post('/sightings', function(req, res){
 });
 
 app.listen(process.env.PORT || 3000);
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help

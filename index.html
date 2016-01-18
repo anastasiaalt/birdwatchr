@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="BirdApp">
+<head>
+  <title>Bird App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/jquery/dist/jquery.js"></script>
+  <script src="/angular/angular.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/birds_controller.js"></script>
+</head>
+<body>
+
+  <h1>Spotted a bird?</h1>
+
+  <div ng-controller="BirdsController as birds">
+    <input type="text" ng-model="birds.new">
+    <button ng-click="birds.add()" id="save">Add Bird</button>
+    <ul id="birds">
+      <li ng-repeat="bird in birds.all">{{bird.name}}</li>
+    </ul>
+  </div>
+
+</body>
+</html>

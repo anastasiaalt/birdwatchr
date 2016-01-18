@@ -4,7 +4,9 @@ console.log("        (_==/  ")
 console.log("birder  ='-    ")
 console.log("we're hiring!  ")
 
-$updateButton.on('click', function(e) {
+$updateButton = $('#updateButton');
+
+$updateButton.on('click', function() {
   // Grab values from current card and save to an object
   var hiveUpdate = {};
   
