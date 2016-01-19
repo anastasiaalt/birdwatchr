@@ -7,10 +7,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/node_modules'));
+// alternative is to install via bower and change config here
 
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
-var mongoUrl = "mongodb://localhost:27017/myDB";
+var mongoUrl = "mongodb://localhost:27017/sandbox";
 var db;
 
 
@@ -28,18 +29,35 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-app.get('/sightings/new', function(req, res){
-  res.render('form');
+app.post('/birds', function(req, res){
+  console.log(req.body);
+  var bird = req.body;
+  console.log(req.params);
+  console.log(req.query)
+  db.collection('birds').insert(bird, function(err, result){
+    res.json(result);
+  });
+
 });
 
-app.get('/api/sightings', function(req, res){
-  res.render('form');
+app.get('/birds', function(req, res){
+  db.collection('birds').find({}).toArray(function(err, results){
+    res.json(results);
+  })
 });
 
-app.post('/sightings', function(req, res){
-  console.log("Submit form");
-});
+
+
+// app.get('/sightings/new', function(req, res){
+//   res.render('form');
+// });
+
+// app.get('/api/sightings', function(req, res){
+//   res.render('form');
+// });
+
+// app.post('/sightings', function(req, res){
+//   console.log("Submit form");
+// });
 
 app.listen(process.env.PORT || 3000);
-Status API Training Shop Blog About Pricing
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
